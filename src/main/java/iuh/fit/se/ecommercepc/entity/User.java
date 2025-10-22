@@ -4,6 +4,8 @@ import iuh.fit.se.ecommercepc.entity.enums.AuthProvider;
 import iuh.fit.se.ecommercepc.entity.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +33,9 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    private String gender;
+    private LocalDate dob;
+
     @Enumerated(EnumType.STRING)
     private Role role = Role.CUSTOMER;
 
@@ -38,6 +43,9 @@ public class User {
     private AuthProvider provider = AuthProvider.LOCAL;
 
     private boolean enabled = false;
+
+    private String otp;
+    private LocalDateTime otpExpiredAt;
 
     private LocalDateTime createdAt = LocalDateTime.now();
 
