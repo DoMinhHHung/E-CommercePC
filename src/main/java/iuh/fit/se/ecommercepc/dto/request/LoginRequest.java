@@ -1,13 +1,12 @@
 package iuh.fit.se.ecommercepc.dto.request;
 
-import lombok.*;
+import jakarta.validation.constraints.*;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class LoginRequest {
+    @NotBlank
+    @Email
     private String email;
+
+    @NotBlank
     private String password;
 }

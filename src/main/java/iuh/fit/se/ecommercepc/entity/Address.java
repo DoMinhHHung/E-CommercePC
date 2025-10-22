@@ -1,28 +1,42 @@
 package iuh.fit.se.ecommercepc.entity;
 
-import jakarta.persistence.*;
 import lombok.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "addresses")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Address {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String street;
-    private String city;
-    private String district;
-    private String ward;
-    private String country;
-    private boolean isDefault = false;
-
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    @Column(nullable = false)
+    private String receiverName;
+
+    @Column(nullable = false)
+    private String phone;
+
+    @Column(nullable = false)
+    private String streetAddress;
+
+    @Column(nullable = false)
+    private String ward;
+
+    @Column(nullable = false)
+    private String district;
+
+    @Column(nullable = false)
+    private String city;
+
+    @Column(nullable = false)
+    private boolean isDefault = false;
 }

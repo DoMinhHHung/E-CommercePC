@@ -1,15 +1,15 @@
 package iuh.fit.se.ecommercepc.dto.request;
 
-import lombok.*;
+import jakarta.validation.constraints.*;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class RegisterRequest {
     private String fullname;
+    @Email
+    @NotBlank
     private String email;
     private String phone;
+    @NotBlank
     private String password;
+    private Gender gender;
+    private java.time.LocalDate dob;
 }
