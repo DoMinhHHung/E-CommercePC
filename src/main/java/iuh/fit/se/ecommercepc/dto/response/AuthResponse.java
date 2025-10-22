@@ -1,13 +1,14 @@
 package iuh.fit.se.ecommercepc.dto.response;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 @Builder
 public class AuthResponse {
-    private String token;
-    private String message;
+    private String accessToken;
+    private String refreshToken;
+    private String tokenType = "Bearer";
+    private Long expiresIn;
+    private UserResponse user;
 }

@@ -1,12 +1,9 @@
 package iuh.fit.se.ecommercepc.service;
 
-import iuh.fit.se.ecommercepc.entity.User;
-
-import java.util.Optional;
+import iuh.fit.se.ecommercepc.dto.request.UserUpdateRequest;
+import iuh.fit.se.ecommercepc.dto.response.UserResponse;
 
 public interface UserService {
-    Optional<User> findByEmail(String email);
-    User save(User user);
-    boolean existsByEmail(String email);
-    boolean existsByPhone(String phone);
+    UserResponse getUserProfile(Long userId);
+    UserResponse updateProfile(Long userId, UserUpdateRequest request);
 }
